@@ -8,7 +8,7 @@ void save_to_disk(struct Graph *g, char *filename){
 	strcat(filename, ".gph");
 	fp = fopen(filename, "w+");
 	while(n < g->num_nodes){
-		fprintf(fp, "node %s\n", g->nodes[n].name);
+		fprintf(fp, "new %s\n", g->nodes[n].name);
 		if(strcmp(g->nodes[n].data, "NULL") != 0){
 			fprintf(fp, "wn %s\n%s\n", g->nodes[n].name, g->nodes[n].data);
 		}
@@ -29,8 +29,8 @@ void save_to_disk(struct Graph *g, char *filename){
 void read_from_disk(char *filename, struct Graph *g){
 	FILE * fp;
 	char line[100];
-	char *name_a = (char *) malloc(sizeof(char)*100);
-	char *name_b = (char *) malloc(sizeof(char)*100);
+	char name_a[100];
+	char name_b[100];
 	char type[5];
 	strcat(filename, ".gph");
 	fp = fopen(filename, "r");
@@ -48,4 +48,5 @@ void read_from_disk(char *filename, struct Graph *g){
 			process_input(line, g);
     	}
     }
+    fclose(fp);
 }

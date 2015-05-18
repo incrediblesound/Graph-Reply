@@ -11,8 +11,23 @@ struct Link {
 };
 
 struct Graph {
-	struct Node *nodes;
-	struct Link *links;
+	struct Node nodes[10000];
+	struct Link links[10000];
 	int num_nodes;
 	int num_links;
+};
+
+struct Array {
+	int length;
+	int *data;
+};
+
+struct Tree {
+	int root;
+	struct Array *children;
+};
+
+struct Forest {
+	int levels;
+	struct Tree **trees;
 };

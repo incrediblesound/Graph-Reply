@@ -1,10 +1,10 @@
 void process_input(char *input, struct Graph *g){
     int i = 0;
-    char *name_a = (char *) malloc(sizeof(char)*100);
-    char *name_b = (char *) malloc(sizeof(char)*100);
+    char name_a[50];
+    char name_b[50];
     char type[5];
     sscanf(input, "%s %s %s", type, name_a, name_b);
-    if(!strcmp(type,"node")){
+    if(!strcmp(type,"new")){
         add_new_node(name_a, g);
     }
     else if(!strcmp(type,"link")){
@@ -13,17 +13,27 @@ void process_input(char *input, struct Graph *g){
     else if(!strcmp(type,"out")){
         print_outgoing_nodes(name_a, g);
     }
+    else if(!strcmp(type,"in")){
+        print_incoming_nodes(name_a, g);
+    }
     else if(!strcmp(type,"wn")){
         write_data_prompt(name_a, g);
     }
     else if(!strcmp(type,"rn")){
         read_data(name_a, g);
     }
+    else if(!strcmp(type, "grph")){
+        print_graph(g);
+    }
     else if(!strcmp(type,"wl")){
         write_link_data_prompt(name_a, name_b, g);
     }
     else if(!strcmp(type,"rl")){
         read_link_data(name_a, name_b, g);
+    }
+    else if(!strcmp(type, "path")){
+        // printf("Hey");
+        test_for_path(name_a, name_b, g);
     }
     else if(!strcmp(type, "save")){
         save_to_disk(g, name_a);
@@ -42,13 +52,19 @@ void process_input(char *input, struct Graph *g){
     else if(!strcmp(type, "add")){
         add_nodes(name_a, name_b, g);
     }
+    else if(!strcmp(type, "div")){
+        divide_nodes(name_a, name_b, g);
+    }
+    else if(!strcmp(type, "sub")){
+        subtract_nodes(name_a, name_b, g);
+    }
+    else if(!strcmp(type, "mult")){
+        multiply_nodes(name_a, name_b, g);
+    }
     else if(!strcmp(type, "id")){
         long long_val;
         long_val = strtol(name_a, NULL, 10);
         int id = (int) long_val;
-        printf("%d\n", id);
         printf("%s\n", get_node_by_id(id, g)->name);
     }
-    free(name_a);
-    free(name_b);
 }
