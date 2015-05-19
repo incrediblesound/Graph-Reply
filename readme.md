@@ -22,7 +22,7 @@ Creates a directed edge from person (source) to manager (target), the nodes are 
 > wn person
 [(person).data]> John
 ```
-The command wn (write node) sets the data attribute of node "name".
+The command wn (write node) sets the data attribute of a given node.
 Here we set the data attribute of person to "John".
 ```code
 > wl person manager
