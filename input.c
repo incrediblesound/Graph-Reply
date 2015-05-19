@@ -22,7 +22,7 @@ void process_input(char *input, struct Graph *g){
     else if(!strcmp(type,"rn")){
         read_data(name_a, g);
     }
-    else if(!strcmp(type, "grph")){
+    else if(!strcmp(type, "all")){
         print_graph(g);
     }
     else if(!strcmp(type,"wl")){

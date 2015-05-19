@@ -171,10 +171,38 @@ void run_command(char *name, struct Graph *g){
 }
 
 void print_graph(struct Graph *g){
-	// printf("{ nodes: [ ");
-	// int i = 0;
-	// while(i < g->num_nodes){
-		
-	// 	i++
-	// }
+	if(g->num_nodes == 0 && g->num_links == 0){
+		printf("{ error: \"No data in graph.\" }\n");
+	} else {
+		printf("{ ");
+		int has_nodes = 0;
+		if(g->num_nodes > 0){
+			has_nodes = 1;
+			printf("\"nodes\": [");
+			int i = 0;
+			while(i < g->num_nodes){
+				if(i > 0 && i <= g->num_nodes-1){
+					printf(", ");
+				}
+				printf("{ \"id\": %d, \"name\": \"%s\", \"data\": \"%s\" }", g->nodes[i].id, g->nodes[i].name, g->nodes[i].data);
+				i++;
+			}
+			printf("]");
+		}
+		if(g->num_links > 0){
+			if(has_nodes){
+				printf(", ");
+			}
+			printf("\"links\": [");
+			int l = 0;
+			while(l < g->num_nodes){
+				if(l > 0 && l <= g->num_nodes-1){
+					printf(", ");
+				}
+				printf("{ \"source\": %d, \"target\": \"%d\", \"data\": \"%s\" }", g->links[l].source, g->links[l].target, g->links[l].data);
+				l++;
+			}
+			printf("] }\n");
+		}
+	}
 }
