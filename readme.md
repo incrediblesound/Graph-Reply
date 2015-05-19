@@ -17,7 +17,7 @@ Creates a node with label "person"
 ```code
 > link person manager
 ```
-Creates an edge from person (source) to job (target), the nodes are created if they do not exist
+Creates a directed edge from person (source) to manager (target), the nodes are created if they do not exist
 ```code
 > wn person
 [(person).data]> John
