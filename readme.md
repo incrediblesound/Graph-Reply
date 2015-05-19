@@ -1,10 +1,12 @@
 Graph Reply
 ===========
-Graph reply is my first attempt at a REPL style program. To run, compile the source code and run the output file. You will be taken to a repl where you can type commands.
+Graph reply is my first attempt at a REPL style program. To run, compile the source code and run the output file. You will be taken to a repl where you can type commands. To close the program enter the command "exit".
 ```shell
 gcc reply.c -o reply
 ./reply
-> enter commands here
+> new mynode
+> save mygraph
+> exit
 ```
 
 
