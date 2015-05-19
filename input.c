@@ -65,6 +65,14 @@ void process_input(char *input, struct Graph *g){
         long long_val;
         long_val = strtol(name_a, NULL, 10);
         int id = (int) long_val;
-        printf("%s\n", get_node_by_id(id, g)->name);
+        struct Node *node; 
+        node = get_node_by_id(id, g);
+        if(!strcmp(node->name, "NULL")){
+            printf("{ \"error\": \"No node with id %d\" }\n", id);
+            free(node->name);
+            free(node);
+        } else {
+            printf("{ \"id: %d, \"name\": \"%s\", \"data\": \"%s\" }\n", id, node->name, node->data);
+        }
     }
 }

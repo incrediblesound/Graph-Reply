@@ -1,10 +1,12 @@
 struct Node *get_node_by_id(int id, struct Graph *g){
-	struct Node *target;
 	for(int i = 0; i < g->num_nodes; i++){
 		if(g->nodes[i].id == id){
 			return &g->nodes[i];
 		}
 	}
+	struct Node *target = malloc(sizeof(struct Node));
+	target->name = malloc(5);
+	strcpy(target->name, "NULL\0");
 	return target;
 }
 
@@ -55,6 +57,7 @@ void print_outgoing_nodes(char *name, struct Graph *g){
 	int id = get_id_by_name(name, g);
 	int first = 0;
 	printf("[ ");
+	struct Node node[1];
 	for(int i = 0; i < g->num_links; i++){
 		if(g->links[i].source == id){
 			if(first){
@@ -62,7 +65,8 @@ void print_outgoing_nodes(char *name, struct Graph *g){
 			} else {
 				first = 1;
 			}
-			printf("{ \"name\": \"%s\" }", get_node_by_id(g->links[i].target, g)->name);
+			node[0] = *get_node_by_id(g->links[i].target, g);
+			printf("{ \"id\": %d, \"name\": \"%s\" }", node[0].id, node[0].name);
 		}
 	}
 	printf(" ]\n");
@@ -72,6 +76,7 @@ void print_incoming_nodes(char *name, struct Graph *g){
 	int id = get_id_by_name(name, g);
 	int first = 0;
 	printf("[ ");
+	struct Node node[1];
 	for(int i = 0; i < g->num_links; i++){
 		if(g->links[i].target == id){
 			if(first){
@@ -79,7 +84,8 @@ void print_incoming_nodes(char *name, struct Graph *g){
 			} else {
 				first = 1;
 			}
-			printf("{ \"name\": \"%s\" }", get_node_by_id(g->links[i].source, g)->name);
+			node[0] = *get_node_by_id(g->links[i].source, g);
+			printf("{ \"id\": %d, \"name\": \"%s\" }", node[0].id, node[0].name);
 		}
 	}
 	printf(" ]\n");
@@ -107,11 +113,20 @@ void write_data_prompt(char *name, struct Graph *g){
 }
 
 void read_data(char *name, struct Graph *g){
-	int i = 0;
-	while(strcmp(name, g->nodes[i].name) != 0 && i <= g->num_nodes){
-		i++;
+	if(!g->num_nodes){
+		printf("{ error: \"No nodes in graph\" }\n");
+		return;
+	} else {
+		int i = 0;
+		while(i < g->num_nodes && strcmp(name, g->nodes[i].name) != 0){
+			i++;
+		}
+		if(i == g->num_nodes){
+			printf("{ error: \"No node with name %s\" }\n", name);
+		} else {
+			printf("{ id: %d, \"name\": \"%s\", \"data\": \"%s\" }\n", g->nodes[i].id, name, g->nodes[i].data);
+		}
 	}
-	printf("{ \"name\": \"%s\", \"data\": \"%s\" }\n", name, g->nodes[i].data);
 }
 
 void get_nodes(struct Graph *g){
@@ -131,7 +146,7 @@ void get_nodes(struct Graph *g){
 			} else {
 				first = 1;
 			}
-			printf("{ \"name\": \"%s\" }", g->nodes[i].name);
+			printf("{ id: %d, \"name\": \"%s\", \"data\": \"%s\" }", g->nodes[i].id, g->nodes[i].name, g->nodes[i].data);
 		}
 	}
 	printf(" ]\n");
