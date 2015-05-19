@@ -37,14 +37,10 @@ The command wl (write link) sets the data attribute of the edge from person to m
 
 READ DATA
 ---------
-Use the id command to get a node label by id.
+You can use the id or name of a node to get its data with the id and rn (read node) commands respectively.
 ```code
 > id 0
 { id: 0, "name": "person", "data": "John" }
-```
-
-Use the rn (read node) command to get node information by label
-```code
 > rn person
 { id: 0, "name": "person", "data": "John" }
 ```
