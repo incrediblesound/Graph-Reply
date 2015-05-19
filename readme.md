@@ -79,6 +79,39 @@ The command getl (get link) asks for data and then returns a pair of ids where t
 ```
 The command path takes two nodes as arguments and returns the first path it finds through the graph via outgoing edges from the first node to the second, or returns false if no path exists.
 
+Math
+----
+Basic arithmetic operations are possible if numbers are stored on the data attribute of nodes, the following examples will suffice to illustrate their usage:
+```code
+> link a b
+> wn a
+[(a).data]> 10
+> wn b
+[(b).data]> 2.5
+> add a b
+12.500000
+> sub a b
+7.500000
+> mult a b
+25.000000
+> div a b
+4.000000
+```
+Aliasing Commands
+----------------
+Commands can be stored on the data property of a node and run using the cmd command.
+```code
+> link a b
+> wn a
+[(a).data]> 10
+> wn b
+[(b).data]> 2.5
+> new operation
+> wn operation
+[(operation).data]> add a b
+> cmd operation
+12.50000
+```
 Disk Storage
 ----
 ```code
