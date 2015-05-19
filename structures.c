@@ -29,5 +29,7 @@ struct Tree {
 
 struct Forest {
 	int levels;
-	struct Tree **trees;
+	struct Tree *trees;
 };
+
+void process_input(char *, struct Graph *);

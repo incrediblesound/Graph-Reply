@@ -61,6 +61,9 @@ void process_input(char *input, struct Graph *g){
     else if(!strcmp(type, "mult")){
         multiply_nodes(name_a, name_b, g);
     }
+    else if(!strcmp(type, "cmd")){
+        run_command(name_a, g);
+    }
     else if(!strcmp(type, "id")){
         long long_val;
         long_val = strtol(name_a, NULL, 10);

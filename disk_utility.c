@@ -1,5 +1,3 @@
-void process_input(char *, struct Graph *);
-
 void save_to_disk(struct Graph *g, char *filename){
 	int n = 0;
 	int l = 0;

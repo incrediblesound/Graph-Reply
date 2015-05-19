@@ -136,10 +136,3 @@ void test_for_path(char *name_a, char *name_b, struct Graph *g){
 	free(path);
 	free(endPath);
 }
-
-
-
-
-
-
-

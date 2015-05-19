@@ -153,6 +153,23 @@ void get_nodes(struct Graph *g){
 	free(line);
 }
 
+void run_command(char *name, struct Graph *g){
+	if(!g->num_nodes){
+		printf("{ error: \"No nodes in graph\" }\n");
+		return;
+	} else {
+		int i = 0;
+		while(i < g->num_nodes && strcmp(name, g->nodes[i].name) != 0){
+			i++;
+		}
+		if(i == g->num_nodes){
+			printf("{ error: \"No node with name %s\" }\n", name);
+		} else {
+			process_input(g->nodes[i].data, g);
+		}
+	}
+}
+
 void print_graph(struct Graph *g){
 	// printf("{ nodes: [ ");
 	// int i = 0;
