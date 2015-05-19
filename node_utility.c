@@ -195,8 +195,8 @@ void print_graph(struct Graph *g){
 			}
 			printf("\"links\": [");
 			int l = 0;
-			while(l < g->num_nodes){
-				if(l > 0 && l <= g->num_nodes-1){
+			while(l < g->num_links){
+				if(l > 0 && l <= g->num_links-1){
 					printf(", ");
 				}
 				printf("{ \"source\": %d, \"target\": \"%d\", \"data\": \"%s\" }", g->links[l].source, g->links[l].target, g->links[l].data);
