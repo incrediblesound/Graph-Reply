@@ -1,6 +1,11 @@
 Graph Reply
 ===========
-Graph reply is my first attempt at a REPL style program.
+Graph reply is my first attempt at a REPL style program. To run, compile the source code and run the output file. You will be taken to a repl where you can type commands.
+```shell
+gcc reply.c -o reply
+./reply
+> enter commands here
+```
 
 
 WRITE DATA
