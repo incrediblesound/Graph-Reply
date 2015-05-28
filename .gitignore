@@ -3,4 +3,5 @@ a.out
 *.txt
 *.gph
 *.o
+.*.mk
 reply

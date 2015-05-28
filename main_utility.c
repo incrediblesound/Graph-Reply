@@ -1,3 +1,8 @@
+#include "main_utility.h"
+
+#include <stdio.h> /* for fgetc(3), stdin, and EOF */
+#include <stdlib.h> /* for malloc(3), realloc(3), and free(3) */
+
 char *get_line() {
     char * line = malloc(100), * linep = line;
     size_t lenmax = 100, len = lenmax;

@@ -1,3 +1,5 @@
+#include "tree_utility.h"
+
 int tree_contains(int target, struct Tree *tree){
 	int contains = 0;
 	int i = 0;

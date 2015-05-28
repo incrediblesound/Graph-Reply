@@ -1,3 +1,12 @@
+#include "disk_utility.h"
+
+#include <stdio.h> /* for fopen(3), fclose(3), fprintf(3), sscanf(3), and fgets(3) */
+#include <string.h> /* for strcat(3) and strcmp(3) */
+
+#include "node_utility.h" /* for get_node_by_id() and write_data() */
+#include "link_utility.h" /* for write_link_data() */
+#include "input.h" /* for process_input() */
+
 void save_to_disk(struct Graph *g, char *filename){
 	int n = 0;
 	int l = 0;

@@ -2,7 +2,7 @@ Graph Reply
 ===========
 I have been teaching myself C for a while and Graph Reply is my first attempt at a REPL style program. It stores data in graph form and supports a variety of read/write operations including saving to disk. To run, compile the source code and run the output file. You will be taken to a repl where you can type commands. To close the program enter the command "exit".
 ```shell
-gcc reply.c -o reply
+make
 ./reply
 > new mynode
 > save mygraph

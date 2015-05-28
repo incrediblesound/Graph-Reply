@@ -1,3 +1,12 @@
+#include "link_utility.h"
+
+#include <stdio.h> /* for printf(3) */
+#include <stdlib.h> /* for malloc(3), realloc(3), and free(3) */
+#include <string.h> /* for strcpy(3), strlen(3), and strcmp(3) */
+
+#include "main_utility.h" /* for get_line() */
+#include "node_utility.h" /* for get_id_by_name() and new_or_existing_id() */
+
 void write_link_data(char *line, char *name_a, char *name_b, struct Graph *g){
 	int len = strlen(line);
 	if(line[len-1] == '\n'){
