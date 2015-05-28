@@ -1,14 +1,9 @@
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include "structures.c"
-#include "tree_utility.c"
-#include "main_utility.c"
-#include "node_utility.c"
-#include "link_utility.c"
-#include "disk_utility.c"
-#include "math.c"
-#include "input.c"
+#include <stdio.h> /* for printf(3) */
+#include <stdlib.h> /* for free(3) */
+#include <string.h> /* for strcmp(3) and strcpy(3) */
+
+#include "input.h" /* for process_input() */
+#include "main_utility.h" /* for get_line() */
 
 int main (){
 	char *line, test[6];

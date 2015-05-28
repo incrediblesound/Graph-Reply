@@ -1,3 +1,14 @@
+#include "input.h"
+
+#include <stdio.h> /* for printf(3) and sscanf(3) */
+#include <stdlib.h> /* for free(3) and strtol(3) */
+#include <string.h> /* for strcmp(3) */
+
+#include "disk_utility.h" /* for read_from_disk() and save_to_disk() */
+#include "link_utility.h" /* for a bunch of things */
+#include "node_utility.h" /* for a bunch of things */
+#include "node_math.h" /* for {add,subtract,multiply,divide}_nodes() */
+
 void process_input(char *input, struct Graph *g){
     int i = 0;
     char name_a[50];

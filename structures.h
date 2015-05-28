@@ -1,3 +1,6 @@
+#ifndef _STRUCTURES_H
+#define _STRUCTURES_H
+
 struct Node {
 	char *name;
 	char *data;
@@ -32,4 +35,4 @@ struct Forest {
 	struct Tree *trees;
 };
 
-void process_input(char *, struct Graph *);
+#endif /* _STRUCTURES_H */
