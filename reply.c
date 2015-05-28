@@ -26,4 +26,4 @@ int main (){
 		free(G.nodes[i].name);
 		i++;
 	}
-};
+}

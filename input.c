@@ -10,7 +10,6 @@
 #include "node_math.h" /* for {add,subtract,multiply,divide}_nodes() */
 
 void process_input(char *input, struct Graph *g){
-    int i = 0;
     char name_a[50];
     char name_b[50];
     char type[5];

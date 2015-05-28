@@ -10,7 +10,7 @@
 void save_to_disk(struct Graph *g, char *filename){
 	int n = 0;
 	int l = 0;
-	char *name_a, *name_b, line[100];
+	char *name_a, *name_b;
 	FILE * fp;
 	strcat(filename, ".gph");
 	fp = fopen(filename, "w+");

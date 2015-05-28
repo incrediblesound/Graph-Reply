@@ -7,7 +7,7 @@
 #include "main_utility.h" /* for get_line() */
 #include "input.h" /* for process_input() */
 
-struct Node *get_node_by_id(int id, struct Graph *g){
+struct Node *get_node_by_id(unsigned int id, struct Graph *g){
 	for(int i = 0; i < g->num_nodes; i++){
 		if(g->nodes[i].id == id){
 			return &g->nodes[i];

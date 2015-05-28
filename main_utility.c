@@ -33,4 +33,4 @@ char *get_line() {
     }
     *line = '\0';
     return linep;
-};
+}
