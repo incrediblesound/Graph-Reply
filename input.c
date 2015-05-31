@@ -13,6 +13,42 @@ void process_input(char *input, struct Graph *g){
     char name_a[50];
     char name_b[50];
     char type[5];
+    int index = 0;
+    while(input[index] != ' ' && input[index] != '\n'){
+        type[index] = input[index];
+        index++;
+        if(index == 5 && input[index+1] != ' ' && input[index+1] != '\n'){
+            printf("{ error: \"Command longer than four characters.\" }\n");
+            return;
+        }
+    }
+    if(input[index] == ' ' && input[index+1] != '\n'){
+        index++;
+        int name_a_index = 0;
+        while(input[index] != ' ' && input[index] != '\n'){
+            name_a[name_a_index] = input[index];
+            index++;
+            name_a_index++;
+            if(name_a_index == 50 && input[index+1] != ' ' && input[index+1] != '\n'){
+                printf("{ error: \"First command parameter longer than fifty characters.\" }\n");
+                return;
+            }
+        }
+    }
+    if(input[index] == ' '){
+        index++;
+        int name_b_index = 0;
+        while(input[index] != ' ' && input[index] != '\n'){
+            name_b[name_b_index] = input[index];
+            index++;
+            name_b_index++;
+            if(name_b_index == 50 && input[index+1] != ' ' && input[index+1] != '\n'){
+                printf("{ error: \"Second command parameter longer than fifty characters.\" }\n");
+                return;
+            }
+        }
+    }
+
     sscanf(input, "%s %s %s", type, name_a, name_b);
     if(!strcmp(type,"new")){
         add_new_node(name_a, g);
@@ -87,5 +123,7 @@ void process_input(char *input, struct Graph *g){
         } else {
             printf("{ \"id: %d, \"name\": \"%s\", \"data\": \"%s\" }\n", id, node->name, node->data);
         }
+    } else {
+        printf("{ error: \"Unknown command.\" }\n");
     }
 }
