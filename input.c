@@ -113,7 +113,7 @@ void process_input(char *input, struct Graph *g){
     else if(!strcmp(type, "id")){
         long long_val;
         long_val = strtol(name_a, NULL, 10);
-        int id = (int) long_val;
+        unsigned int id = (unsigned int) long_val;
         struct Node *node; 
         node = get_node_by_id(id, g);
         if(!strcmp(node->name, "NULL")){

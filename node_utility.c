@@ -123,7 +123,7 @@ void write_data_prompt(char *name, struct Graph *g){
 
 void read_data(char *name, struct Graph *g){
 	if(!g->num_nodes){
-		printf("{ error: \"No nodes in graph\" }\n");
+		printf("{ error: \"No nodes in graph.\" }\n");
 		return;
 	} else {
 		int i = 0;
@@ -131,7 +131,7 @@ void read_data(char *name, struct Graph *g){
 			i++;
 		}
 		if(i == g->num_nodes){
-			printf("{ error: \"No node with name %s\" }\n", name);
+			printf("{ error: \"No node with name %s.\" }\n", name);
 		} else {
 			printf("{ id: %d, \"name\": \"%s\", \"data\": \"%s\" }\n", g->nodes[i].id, name, g->nodes[i].data);
 		}
@@ -164,7 +164,7 @@ void get_nodes(struct Graph *g){
 
 void run_command(char *name, struct Graph *g){
 	if(!g->num_nodes){
-		printf("{ error: \"No nodes in graph\" }\n");
+		printf("{ error: \"No nodes in graph.\" }\n");
 		return;
 	} else {
 		int i = 0;
@@ -172,7 +172,7 @@ void run_command(char *name, struct Graph *g){
 			i++;
 		}
 		if(i == g->num_nodes){
-			printf("{ error: \"No node with name %s\" }\n", name);
+			printf("{ error: \"No node with name %s.\" }\n", name);
 		} else {
 			process_input(g->nodes[i].data, g);
 		}
