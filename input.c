@@ -125,22 +125,22 @@ void process_input(char *input, struct Graph *g){
         }
     }
     else if(!strcmp(type, "help")){
-        printf("new a     creates new node with label \"a\"\n");
-        printf("link a b  creates a link between nodes a and b, creating them if they don't exist\n");
-        printf("id X      get node with id X\n");
-        printf("wn a      write data to node with label \"a\"\n");
-        printf("wl a b    write data to link connecting nodes a and b\n");
-        printf("in a      print links where a is the target\n");
-        printf("out a     print links where a is the source\n");
-        printf("getl      get all links with specific data\n");
-        printf("getn      get all nodes with specific data\n");
-        printf("path a b  finds path from a to b, or returns false is path doesn't exist\n");
-        printf("all       prints all nodes and links in the graph\n");
-        printf("add a b   returns the sum of the data values of a and b\n");
-        printf("sub a b   returns the difference of the data values of a and b\n");
-        printf("div a b   returns the quotient of the data values of a and b\n");
-        printf("mult a b  returns the product of the data values of a and b\n");
-        printf("cmd a     runs the data value of node a as a command\n");
+        printf("  new a     creates new node with label \"a\"\n");
+        printf("  link a b  creates a link between nodes a and b, creating them if they don't exist\n");
+        printf("  id X      get node with id X\n");
+        printf("  wn a      write data to node with label \"a\"\n");
+        printf("  wl a b    write data to link connecting nodes a and b\n");
+        printf("  in a      print links where a is the target\n");
+        printf("  out a     print links where a is the source\n");
+        printf("  getl      get all links with specific data\n");
+        printf("  getn      get all nodes with specific data\n");
+        printf("  path a b  finds path from a to b, or returns false is path doesn't exist\n");
+        printf("  all       prints all nodes and links in the graph\n");
+        printf("  add a b   returns the sum of the data values of a and b\n");
+        printf("  sub a b   returns the difference of the data values of a and b\n");
+        printf("  div a b   returns the quotient of the data values of a and b\n");
+        printf("  mult a b  returns the product of the data values of a and b\n");
+        printf("  cmd a     runs the data value of node a as a command\n");
     } else {
         printf("{ error: \"Unknown command.\" }\n");
     }
