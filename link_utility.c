@@ -26,11 +26,18 @@ void write_link_data(char *line, char *name_a, char *name_b, struct Graph *g){
 }
 
 void write_link_data_prompt(char *name_a, char *name_b, struct Graph *g){
-	char *line;
-	printf("[(%s->%s).data]> ", name_a, name_b);
-	line = get_line();
-	write_link_data(line, name_a, name_b, g);
-	free(line);
+	if(!node_exists(name_a, g)){
+		printf("{ error: \"No node with name %s.\" }\n", name_a);
+	} 
+	else if(!node_exists(name_b, g)){
+		printf("{ error: \"No node with name %s.\" }\n", name_b);
+	} else {
+		char *line;
+		printf("[(%s->%s).data]> ", name_a, name_b);
+		line = get_line();
+		write_link_data(line, name_a, name_b, g);
+		free(line);
+	}
 }
 
 void read_link_data(char *name_a, char *name_b, struct Graph *g){

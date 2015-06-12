@@ -5,6 +5,7 @@
 
 struct Node *get_node_by_id(unsigned int id, struct Graph *g);
 int add_new_node(char *name, struct Graph *g);
+int node_exists(char *name, struct Graph *g);
 int new_or_existing_id(char *name, struct Graph *g);
 int get_id_by_name(char *name, struct Graph *g);
 char *return_node_data(char *name, struct Graph *g);

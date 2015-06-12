@@ -19,6 +19,15 @@ struct Node *get_node_by_id(unsigned int id, struct Graph *g){
 	return target;
 }
 
+int node_exists(char *name, struct Graph *g){
+	for(int i = 0; i < g->num_nodes; i++){
+		if(!strcmp(g->nodes[i].name, name)){
+			return 1;
+		}
+	}
+	return 0;
+}
+
 int add_new_node(char *name, struct Graph *g){
 	g->num_nodes++;
 	int id = g->num_nodes-1;
@@ -114,11 +123,15 @@ void write_data(char *line, char *name, struct Graph *g){
 }
 
 void write_data_prompt(char *name, struct Graph *g){
-	char *line;
-	printf("[(%s).data]> ", name);
-	line = get_line();
-	write_data(line, name, g);
-	free(line);
+	if(!node_exists(name, g)){
+		printf("{ error: \"No node with name %s.\" }\n", name);
+	} else {
+		char *line;
+		printf("[(%s).data]> ", name);
+		line = get_line();
+		write_data(line, name, g);
+		free(line);
+	}
 }
 
 void read_data(char *name, struct Graph *g){
