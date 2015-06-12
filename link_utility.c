@@ -113,11 +113,14 @@ struct Array *search(int node_id, int target, struct Array *path, struct Graph *
 		}
 		newPath->data[newPath->length-1] = tree->children->data[i];
 		if(tree->children->data[i] == target){
+			free(tree->children);
+			free(tree);
 			return newPath;
 		} else {
 			newPath = search(tree->children->data[i], target, newPath, g);
 		}
 	}
+	free(tree->children);
 	free(tree);
 	return newPath;
 }
@@ -142,6 +145,8 @@ void test_for_path(char *name_a, char *name_b, struct Graph *g){
 	} else {
 		printf("{ \"hasPath\": false }\n");
 	}
+	free(path->data);
 	free(path);
+	free(endPath->data);
 	free(endPath);
 }
